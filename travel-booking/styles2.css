@@ -1,0 +1,140 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #121212;
+    color: white;
+}
+
+header {
+    background-color: #1f1f1f;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffab;
+}
+
+.nav-items a, .user-options a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-items a:hover, .user-options a:hover {
+    color: #00ffab;
+}
+
+.user-options span {
+    margin: 0 5px;
+}
+
+.user-options button {
+    background-color: #00ffab;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.user-options button:hover {
+    background-color: #009e73;
+}
+
+.search-section {
+    background: linear-gradient(135deg, #1f1f1f, #00ffab);
+    padding: 50px 0;
+    text-align: center;
+    border-bottom: 5px solid #00ffab;
+}
+
+.search-section h1 {
+    margin-bottom: 10px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.search-section p {
+    margin-bottom: 20px;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.search-input, .date-input, .guest-input {
+    padding: 10px;
+    margin: 0 5px;
+    border: 1px solid #00ffab;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    width: 200px;
+    transition: border-color 0.3s;
+}
+
+.search-input::placeholder, .date-input::placeholder {
+    color: #888;
+}
+
+.search-input:focus, .date-input:focus, .guest-input:focus {
+    border-color: #00ffab;
+}
+
+.guest-input {
+    cursor: pointer;
+    background-color: #333;
+}
+
+.search-button {
+    background-color: #00ffab;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-button:hover {
+    background-color: #009e73;
+    transform: scale(1.05);
+}
+
+.flights-checkbox {
+    margin-top: 20px;
+}
+
+.flights-checkbox input {
+    margin-right: 5px;
+}
+
+.offers {
+    padding: 20px;
+    text-align: center;
+}

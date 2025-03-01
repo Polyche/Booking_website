@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('image1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80vh;
+            padding: 40px 0;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .welcome-text {
+            max-width: 500px;
+            color: white;
+            text-align: center;
+            position: relative;
+            top: -210px; /* Adjust this value as needed */
+        }
+
+        .welcome-text h1 {
+            position: relative;
+            top:125px;
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .welcome-text p {
+            position: relative;
+            top: 160px;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="password"],
+        form button[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        form button[type="submit"] {
+            background-color: #008080;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        form button[type="submit"]:hover {
+            background-color: #064949;
+            transform: scale(1.05);
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+            color: #064949;;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Password Strength Meter Styles */
+        .password-strength-meter {
+            margin-top: 5px;
+            height: 5px;
+            background-color: #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .password-strength-bar {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .weak {
+            background-color: #ff6347; /* Red for weak */
+        }
+
+        .medium {
+            background-color: #ffd700; /* Yellow for medium */
+        }
+
+        .strong {
+            background-color: #7cfc00; /* Green for strong */
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            cursor: pointer;
+        }
+
+        header .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            background-color: #064949;
+        }
+
+        .header-container img {
+            width: 20%;
+            height: auto;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1><a href="front_page.php">
+                <img src="logo.png" alt="Logo">
+                </a></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.php">Sign in</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="main-content container">
+        <div class="form-container">
+            <h2>Registration Form</h2>
+            <div id="error" class="error-message" style="display: none;"></div>
+            <form id="registerForm" action="register.php" method="post">
+                <input type="text" id="firstName" name="nume" placeholder="First Name" required><br>
+                <input type="text" id="lastName" name="prenume" placeholder="Last Name" required><br>
+                <input type="email" id="email" name="email" placeholder="Email" required><br>
+                <div class="password-container">
+                    <input type="password" id="password" name="parola" placeholder="Password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()"><i class="far fa-eye"></i></span>
+                </div>
+                <div class="password-strength-meter">
+                    <div class="password-strength-bar"></div>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="index.php">Login here</a>.</p>
+        </div>
+        <div class="welcome-text">
+            <h1>Welcome to Our Booking Website</h1>
+            <p>Join us today and find amazing deals on hotels, homes, and much more...</p>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Booking Website. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            var firstName = document.getElementById("firstName").value.trim();
+            var lastName = document.getElementById("lastName").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var password = document.getElementById("password").value;
+
+            var errorDiv = document.getElementById("error");
+            errorDiv.style.display = "none";
+            errorDiv.innerHTML = "";
+
+            if (firstName === "") {
+                showError("Please enter your first name.");
+                return;
+            }
+
+            if (lastName === "") {
+                showError("Please enter your last name.");
+                return;
+            }
+
+            if (email === "") {
+                showError("Please enter your email address.");
+                return;
+            } else if (!isValidEmail(email)) {
+                showError("Please enter a valid email address.");
+                return;
+            }
+
+            if (password === "") {
+                showError("Please enter a password.");
+                return;
+            } else if (password.length < 8) {
+                showError("Password must be at least 8 characters long.");
+                return;
+            }
+
+            var form = this;
+            var formData = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: formData
+            }).then(function(response) {
+                return response.json();
+            }).then(function(data) {
+                if (data.success) {
+                    // Registration successful
+                    alert(data.message);
+                    // Redirect to login page
+                    window.location.href = "index.php";
+                } else {
+                    // Registration failed
+                    showError(data.message);
+                }
+            }).catch(function(error) {
+                console.error('Error:', error);
+            });
+        });
+
+        function showError(message) {
+            var errorDiv = document.getElementById("error");
+            errorDiv.innerHTML = message;
+            errorDiv.style.display = "block";
+        }
+
+        function isValidEmail(email) {
+            // Basic email validation using regular expression
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        var passwordInput = document.getElementById("password");
+        var meter = document.querySelector(".password-strength-meter");
+        var bar = document.querySelector(".password-strength-bar");
+
+        passwordInput.addEventListener("input", function() {
+            var password = passwordInput.value;
+            var strength = calculatePasswordStrength(password);
+            updateMeter(strength);
+        });
+
+        function calculatePasswordStrength(password) {
+            // Basic implementation, you can enhance this with more sophisticated checks
+            var strength = 0;
+            if (password.length >= 8) {
+                strength += 1;
+            }
+            if (password.match(/[a-z]+/)) {
+                strength += 1;
+            }
+            if (password.match(/[A-Z]+/)) {
+                strength += 1;
+            }
+            if (password.match(/[0-9]+/)) {
+                strength += 1;
+            }
+            if (password.match(/[!@#$%^&*()]+/)) {
+                strength += 1;
+            }
+            return strength;
+        }
+
+        function updateMeter(strength) {
+            var passwordClass = "";
+            var width = 0;
+            switch (strength) {
+                case 1:
+                    passwordClass = "weak";
+                    width = 25;
+                    break;
+                case 2:
+                    passwordClass = "medium";
+                    width = 50;
+                    break;
+                case 3:
+                case 4:
+                    passwordClass = "strong";
+                    width = 100;
+                    break;
+            }
+            bar.style.width = width + "%";
+            bar.className = "password-strength-bar " + passwordClass;
+        }
+
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var toggleButton = document.querySelector(".toggle-password i");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleButton.classList.remove("fa-eye");
+                toggleButton.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                toggleButton.classList.remove("fa-eye-slash");
+                toggleButton.classList.add("fa-eye");
+            }
+        }
+    </script>
+</body>
+</html>
